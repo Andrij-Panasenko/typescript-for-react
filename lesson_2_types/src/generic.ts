@@ -54,3 +54,5 @@ const todo1: Todo = {
 const todo2 = updateTodo(todo1, {
     description: "Study generic",
 })
+
+// readonly
