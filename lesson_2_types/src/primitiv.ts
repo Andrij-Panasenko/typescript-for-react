@@ -15,7 +15,7 @@ let notParam: undefined = undefined;
 
 // не обов'язково вказувати тип даних, якщо ви передати його явно.
 const num = 10;
-const str = 'Some string';
+const string = 'Some string';
 const bool = true;
 const emptyNull = null;
 const notParamUndef = undefined;
