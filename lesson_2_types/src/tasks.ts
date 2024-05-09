@@ -135,19 +135,24 @@ function compare<
 }
 
 // У вас є функція merge, яка поєднує два об'єкти. Використовуйте generics, щоб вказати, що ці об'єкти можуть бути будь-якого типу.
-function merge<A,B> (objA, objB) {
+function merge<T extends Object, R extends Object>(objA: T, objB: R) {
   return Object.assign(objA, objB);
 }
 
 // Використовуйте generics та інтерфейси, щоб виправити помилку в наступних класах:
-class Component {
+
+interface Book {
+  title: string,
+}
+
+class Component<T> {
   constructor (public props:T) {
 
   }
 }
 
-class Page extends Component {
-  pageInfo () {
+class Page extends Component<Book> {
+  pageInfo (): void {
     console.log(this.props.title);
   }
 }
@@ -156,14 +161,13 @@ class Page extends Component {
 // Вам потрібно реалізувати інтерфейс KeyValuePair, який описує пару ключ - значення.
 // Використовуйте generics, щоб цей інтерфейс міг працювати з будь - якими типами ключів та значень.
 
-interface KeyValuePair {
-  key;
-  value;
+interface KeyValuePair<T,R> {
+  key: T;
+  value: R;
 }
 
 // Ви маєте форму реєстрації користувачів. Іноді потрібно попередньо заповнити форму даними користувача для оновлення його профілю.
 // Однак вам не завжди потрібно заповнити всі поля.Наприклад, користувач може хотіти оновити лише свій email та пароль, залишивши ім'я та прізвище без змін.
-
 // Виправте тип у аргументі функції так, щоб не було помилок типу.
 type User = {
   name: string;
@@ -172,7 +176,7 @@ type User = {
   password: string;
 }
 
-function createOrUpdateUser(initialValues: User) {
+function createOrUpdateUser(initialValues: Partial<User>) {
   // Оновлення користувача
 }
 
@@ -211,6 +215,6 @@ type Form = {
 };
 
 // Реалізуйте Params так, щоб унеможливити поле 'errors' з типу Form
-type Params = Form;
-``
+type Params = Omit<Form, "errors">;
+
 
