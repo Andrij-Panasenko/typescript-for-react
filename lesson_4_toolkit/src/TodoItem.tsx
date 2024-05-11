@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import {Task} from './App'
+import { Task } from './redux/todoSlice'
 
 // interface IProps {}
 interface TodoItemProps {
