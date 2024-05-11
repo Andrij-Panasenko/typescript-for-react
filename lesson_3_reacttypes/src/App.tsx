@@ -3,7 +3,7 @@ import './App.css';
 import { TodoItem } from './TodoItem';
 import { AddTodoFrom } from './AddTodoForm';
 
-interface Task {
+export interface Task {
   id: number,
   text: string
 }
