@@ -5,7 +5,7 @@ interface AddTodoFormProps {
 }
 
 export const AddTodoFrom: FC<AddTodoFormProps> = ({ onAdd }) => {
-    const [newTodo, setNewTodo] = useState("")
+    const [newTodo, setNewTodo] = useState<string>("")
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
